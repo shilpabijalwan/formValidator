@@ -28,13 +28,13 @@ React Form Validator provides a complete solution for form validation in React a
 ## 📦 Installation
 
 ```bash
-npm install react-form-validator
+npm install formease-sb
 ```
 
 ## 🚀 Quick Start
 
 ```jsx
-import { useForm, validators } from "react-form-validator";
+import { useForm, validators } from "formease-sb";
 
 function LoginForm() {
   const { errors, touched, handleSubmit, getFieldProps } = useForm(
@@ -46,7 +46,7 @@ function LoginForm() {
       ],
       password: [
         validators.required("Password is required"),
-        validators.minLength(8)("Password must be at least 8 characters"),
+        validators.minLength(8, "Password must be at least 8 characters"),
       ],
     }
   );
@@ -96,7 +96,7 @@ Main hook for form management and validation.
     email: validators.email(),
     password: [
       validators.required(),
-      validators.minLength(8)()
+      validators.minLength(8)
     ]
   }
   ```
@@ -165,8 +165,8 @@ email: validators.email("Please enter a valid email");
 Validates minimum string length.
 
 ```jsx
-password: validators.minLength(8)("Must be at least 8 characters");
-password: validators.minLength(8)(); // Default message
+password: validators.minLength(8, "Must be at least 8 characters");
+password: validators.minLength(8); // Default message
 ```
 
 #### `validators.maxLength(length, message?)`
@@ -174,7 +174,7 @@ password: validators.minLength(8)(); // Default message
 Validates maximum string length.
 
 ```jsx
-username: validators.maxLength(20)("Username too long");
+username: validators.maxLength(20, "Username too long");
 ```
 
 #### `validators.pattern(regex, message?)`
@@ -319,7 +319,7 @@ const { errors, touched, handleSubmit, getFieldProps } = useForm(
   {
     username: [
       validators.required("Username is required"),
-      validators.minLength(3)(),
+      validators.minLength(3),
     ],
     email: [validators.required(), validators.email("Invalid email format")],
   }
@@ -344,7 +344,7 @@ return (
 const validationSchema = {
   password: [
     validators.required(),
-    validators.minLength(8)(),
+    validators.minLength(8),
     validators.strongPassword(),
   ],
   confirmPassword: [
@@ -370,7 +370,7 @@ const validationSchema = {
 const validationSchema = {
   username: [
     validators.required(),
-    validators.minLength(3)(),
+    validators.minLength(3),
     validators.custom(async (value) => {
       const exists = await checkUsernameExists(value);
       return !exists;
