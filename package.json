@@ -1,5 +1,5 @@
 {
-  "name": "react-form-validator",
+  "name": "@shilpabijalwan/formValidator",
   "version": "0.1.0",
   "type": "module",
   "description": "A lightweight React form validation library with 20+ built-in validators, async support, and conditional logic",
