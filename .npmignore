@@ -1,0 +1,23 @@
+node_modules
+.vscode
+.idea
+*.log
+.env
+.env.local
+
+# Source files (keep dist)
+src/
+public/
+
+# Development files
+index.html
+vite.config.js
+eslint.config.js
+
+# Git
+.git
+.gitignore
+
+# Docs (optional - keep README)
+# README.md
+
