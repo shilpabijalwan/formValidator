@@ -481,6 +481,19 @@ MIT
 
 ---
 
+## 📦 Publishing This Library
+
+Want to publish your own version of this library? See `HOW_TO_PUBLISH.md` for detailed instructions.
+
+**Quick steps:**
+
+1. Choose a unique package name (or use scoped package)
+2. Login to npm: `npm login`
+3. Build: `npm run build:lib`
+4. Publish: `npm publish` or `npm publish --access public`
+
+---
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
