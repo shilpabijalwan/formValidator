@@ -2,21 +2,23 @@
   "name": "react-form-validator",
   "version": "0.1.0",
   "type": "module",
-  "description": "A lightweight React form validation library",
+  "description": "A lightweight React form validation library with 20+ built-in validators, async support, and conditional logic",
   "main": "./dist/formvalidator.js",
   "module": "./dist/formvalidator.js",
   "exports": {
     ".": "./dist/formvalidator.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "build:lib": "vite build --mode library",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build:lib"
   },
   "dependencies": {
     "react": "^19.1.1",
@@ -43,8 +45,21 @@
     "validation",
     "hooks",
     "react-hooks",
-    "form-validation"
+    "form-validation",
+    "async-validation",
+    "form-validator",
+    "react-form",
+    "validation-library",
+    "react-validation"
   ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shilpabijalwan/formValidator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shilpabijalwan/formValidator/issues"
+  },
+  "homepage": "https://github.com/shilpabijalwan/formValidator#readme"
 }
