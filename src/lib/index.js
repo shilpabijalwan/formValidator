@@ -10,12 +10,12 @@ export { validators } from "./validators.js";
 export default {
   useForm: () => {
     throw new Error(
-      'Please use named import: import { useForm } from "react-form-validator"'
+      'Please use named import: import { useForm } from "formease-sb"'
     );
   },
   validators: () => {
     throw new Error(
-      'Please use named import: import { validators } from "react-form-validator"'
+      'Please use named import: import { validators } from "formease-sb"'
     );
   },
 };
