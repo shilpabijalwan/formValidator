@@ -1,6 +1,6 @@
 {
   "name": "formease-sb",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "description": "A lightweight React form validation library with 20+ built-in validators, async support, and conditional logic",
   "main": "./dist/formvalidator.js",
