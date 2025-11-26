@@ -24,21 +24,17 @@ const stringValidators = {
       return null;
     },
 
-  minLength:
-    (length, message) =>
-    (value) => {
-      if (value && value.length < length)
-        return message || `Must be at least ${length} characters`;
-      return null;
-    },
+  minLength: (length, message) => (value) => {
+    if (value && value.length < length)
+      return message || `Must be at least ${length} characters`;
+    return null;
+  },
 
-  maxLength:
-    (length, message) =>
-    (value) => {
-      if (value && value.length > length)
-        return message || `Must be at most ${length} characters`;
-      return null;
-    },
+  maxLength: (length, message) => (value) => {
+    if (value && value.length > length)
+      return message || `Must be at most ${length} characters`;
+    return null;
+  },
 
   pattern:
     (regex, message = "Invalid format") =>
@@ -48,18 +44,20 @@ const stringValidators = {
     },
 
   strongPassword:
-  (message = "Password must include uppercase, lowercase, number, special character, and be at least 8 characters long") =>
-  (value, _allValues) => {
-    if (!value) return null;
+    (
+      message = "Password must include uppercase, lowercase, number, special character, and be at least 8 characters long"
+    ) =>
+    (value, _allValues) => {
+      if (!value) return null;
 
-    const strongRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      const strongRegex =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-    if (!strongRegex.test(value)) {
-      return message;
-    }
-    return null;
-  },
+      if (!strongRegex.test(value)) {
+        return message;
+      }
+      return null;
+    },
 
   alpha:
     (message = "Only letters allowed") =>
@@ -86,6 +84,30 @@ const stringValidators = {
         return message;
       }
     },
+  dropdown:
+    (options = [], message = "Please select a valid option") =>
+    (value, _allValues) => {
+      // ⿡ Check if value is empty or default
+      if (
+        value === undefined ||
+        value === null ||
+        value === "" ||
+        value === "default"
+      ) {
+        return "Please select an option";
+      }
+
+      // ⿢ If options are provided, ensure the selected value exists in the list
+      if (
+        Array.isArray(options) &&
+        options.length > 0 &&
+        !options.includes(value)
+      ) {
+        return message;
+      }
+
+      return null;
+    },
 };
 
 //
@@ -99,23 +121,19 @@ const numberValidators = {
       return null;
     },
 
-  minValueAllowed:
-    (min, message) =>
-    (value) => {
-      const num = Number(value);
-      if (value !== "" && !isNaN(num) && num < min)
-        return message || `Must be at least ${min}`;
-      return null;
-    },
+  minValueAllowed: (min, message) => (value) => {
+    const num = Number(value);
+    if (value !== "" && !isNaN(num) && num < min)
+      return message || `Must be at least ${min}`;
+    return null;
+  },
 
-  maxValueAllowed:
-    (max, message) =>
-    (value) => {
-      const num = Number(value);
-      if (value !== "" && !isNaN(num) && num > max)
-        return message || `Must be at most ${max}`;
-      return null;
-    },
+  maxValueAllowed: (max, message) => (value) => {
+    const num = Number(value);
+    if (value !== "" && !isNaN(num) && num > max)
+      return message || `Must be at most ${max}`;
+    return null;
+  },
 };
 
 //
